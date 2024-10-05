@@ -1,13 +1,12 @@
-# 📦 Streamlit App Starter Kit 
+# Eco_Equality app
 ```
-⬆️ (Replace above with your app's name)
 ```
 
-Description of the app ...
+This is the data of women diagnosed by anemia world wide
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://Eco_Equality.streamlit.app/)
 
 ## GitHub Codespaces
 
@@ -15,11 +14,8 @@ Description of the app ...
 
 ## Section Heading
 
-This is filler text, please replace this with text for this section.
-
+This app explains that women in regions suffering from climate change are highly vulurnable to get diseases like anemia
 ## Further Reading
 
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+This is the resource I've used to get my data
+- UN data: https://data.un.org/Data.aspx?q=women&d=FAO&f=itemCode%3a210430
