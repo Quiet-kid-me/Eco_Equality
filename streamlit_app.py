@@ -6,3 +6,5 @@ with st.expander('Data'):
   st.write('Raw data')
   df = pd.read_csv('https://raw.githubusercontent.com/Quiet-kid-me/women_anemia/main/UNdata_Export_20241005_161251297.csv')
   st.dataframe(df)
+with st.expander('Map'):
+  st.map
