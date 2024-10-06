@@ -8,4 +8,4 @@ with st.expander('Data'):
   st.dataframe(df)
 with st.expander('Map'):
   map_df = df.pivot_table(index='Country or Area', values='Value', aggfunc='mean')
-  st.map
+  st.map(map_df)
