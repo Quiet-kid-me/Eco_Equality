@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-st.title('Eco_Equality')
+st.title('🌍 Eco_Equality')
 st.info('This app shows the number of women in reproductive age having anemia.')
 with st.expander('Data'):
   st.write('Raw data')
