@@ -8,13 +8,13 @@ with st.expander('Data'):
   st.dataframe(df)
 with st.expander('Map'):
 # Load a separate dataset with country latitudes and longitudes
-country_lat_long = pd.read_csv('country_lat_long.csv')
+  country_lat_long = pd.read_csv('country_lat_long.csv')
 
 # Merge the two datasets on country names
-merged_df = pd.merge(df, country_lat_long, left_on='Country or Area', right_on='country')
+  merged_df = pd.merge(df, country_lat_long, left_on='Country or Area', right_on='country')
 
 # Prepare the data for mapping
-map_df = merged_df.pivot_table(index='country', values='Value', aggfunc='mean')
+  map_df = merged_df.pivot_table(index='country', values='Value', aggfunc='mean')
 
 # Create the map using st.map
-st.map(map_df, lat='latitude', lon='longitude')
+  st.map(map_df, lat='latitude', lon='longitude')
