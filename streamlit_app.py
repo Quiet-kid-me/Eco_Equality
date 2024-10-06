@@ -7,20 +7,50 @@ with st.expander('Data'):
   df = pd.read_csv('https://raw.githubusercontent.com/Quiet-kid-me/women_anemia/refs/heads/main/data.csv')
   st.dataframe(df)
 with st.expander('Map'):
-  country_coordinates = {
-    "Afghanistan": (33.93911, 67.709953),
-    "Africa": (1.2921, 36.8219),  # This is a general point; adjust accordingly
-    "Nepal": (28.3949, 84.1240),
+# Sample data in a DataFrame
+data = {
+    "Country or Area": [
+        "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan",
+        "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan",
+        "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan",
+        "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan",
+        "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa",
+        "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa",
+        "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa", "Africa",
+        "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal",
+        "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal", "Nepal",
+        "Nepal", "Nepal", "Nepal", "Nepal", "Nepal"
+    ],
+    "Value": [
+        3.80, 3.60, 3.40, 3.20, 3.00,
+        2.90, 2.70, 2.50, 2.40, 2.30,
+        2.20, 2.10, 2.00, 2.00, 1.90,
+        1.80, 1.70, 1.70, 1.60, 1.50,
+        122.70, 119.10, 115.90, 112.90, 110.20,
+        107.60, 105.20, 103.10, 101.20, 99.70,
+        98.30, 97.10, 96.00, 94.70, 93.40,
+        91.80, 90.10, 88.30, 15.80, 85.10,
+        3.20, 3.10, 3.00, 2.90, 2.80,
+        2.70, 2.70, 2.60, 2.60, 2.60,
+        2.50, 2.50, 2.50, 2.50, 2.50,
+        2.50, 2.60, 2.60, 2.60, 2.60
+    ]
 }
 
-# Create a new DataFrame for the map
-map_data = pd.DataFrame(columns=["lat", "lon", "Value"])
+# Create a DataFrame
+df = pd.DataFrame(data)
 
-# Populate the DataFrame with coordinates and values
-for country, coords in country_coordinates.items():
-    values = data[data['Country or Area'] == country]['Value'].astype(float).values
-    for value in values:
-        map_data = map_data.append({"lat": coords[0], "lon": coords[1], "Value": value}, ignore_index=True)
+# Coordinates for mapping (latitude, longitude)
+coords = {
+    "Afghanistan": [33.93911, 67.709953],  # Approximate center of Afghanistan
+    "Africa": [1.2921, 36.8219],  # Approximate center of Africa (East Africa)
+    "Nepal": [28.3949, 84.1240]  # Approximate center of Nepal
+}
 
-# Display the map
-st.map(map_data)
+# Extracting latitude and longitude
+df['Latitude'] = df['Country or Area'].map(lambda x: coords[x][0])
+df['Longitude'] = df['Country or Area'].map(lambda x: coords[x][1])
+
+# Create a map
+st.title("Country Data Map")
+st.map(df[['Latitude', 'Longitude', 'Value']])
