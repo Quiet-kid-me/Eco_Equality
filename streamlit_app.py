@@ -1,5 +1,5 @@
 import streamlit as st
-
-st.title('🎈 App Name')
+import pandas as pd
+st.title('Eco_Equality')
 
 st.write('Hello world!')
