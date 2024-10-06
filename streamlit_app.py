@@ -7,5 +7,14 @@ with st.expander('Data'):
   df = pd.read_csv('https://raw.githubusercontent.com/Quiet-kid-me/women_anemia/main/UNdata_Export_20241005_161251297.csv')
   st.dataframe(df)
 with st.expander('Map'):
-  map_df = df.pivot_table(index='Country or Area', values='Value', aggfunc='mean')
-  st.map(map_df)
+# Load a separate dataset with country latitudes and longitudes
+country_lat_long = pd.read_csv('country_lat_long.csv')
+
+# Merge the two datasets on country names
+merged_df = pd.merge(df, country_lat_long, left_on='Country or Area', right_on='country')
+
+# Prepare the data for mapping
+map_df = merged_df.pivot_table(index='country', values='Value', aggfunc='mean')
+
+# Create the map using st.map
+st.map(map_df, lat='latitude', lon='longitude')
