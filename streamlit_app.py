@@ -6,7 +6,6 @@ with st.expander('Data'):
   st.write('Raw data')
   df = pd.read_csv('https://raw.githubusercontent.com/Quiet-kid-me/women_anemia/refs/heads/main/data.csv')
   st.dataframe(df)
-with st.expander('Map'):
 # Sample data in a DataFrame
 data = {
     "Country or Area": [
