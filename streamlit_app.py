@@ -7,4 +7,4 @@ with st.expander('Data'):
   df = pd.read_csv('https://raw.githubusercontent.com/Quiet-kid-me/women_anemia/refs/heads/main/data.csv')
   st.dataframe(df)
 with st.expander('Data visualization'):
-  st.scatter_chart(data=df, x='Unit', y='Value', color='Country or Area')
+  st.scatter_chart(data=df, x='Country or Area', y='year', color='Value')
